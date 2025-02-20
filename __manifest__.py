@@ -8,7 +8,8 @@
     'data': [
         'security/ir.model.access.csv',
         'views/product_template_view.xml',
-        'views/product_sitioweb_view.xml'
+        'views/product_sitioweb_view.xml',
+        'views/product_card_view.xml'
     ],
     'installable': True,
     'application': False,
