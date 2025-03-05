@@ -3,13 +3,13 @@
     <template id="website_sale_products_inherit" inherit_id="website_sale.shop_product_image">
         <xpath expr="//div[contains(@class, 'd-inline-flex')]" position="inside">
             <div class="oe_product_info mt-3">
-                <p>
-                    <strong>Cantidad por caja:</strong>
-                    <t t-esc="product.cantidad_por_caja or 'N/A'" />
+                <p class="d-block text-muted" style="font-size: 12px;">
+                    <strong>
+                        <t t-esc="product.empaquetado_descripcion" />
+                    </strong>
                 </p>
-                <p><strong>Precio por unidad:</strong>
-                    <t t-esc="product.precio_por_unidad or 'N/A'" />
-                    $ </p>
+                <p class="d-block font-weight-bold" style="font-size: 14px;"> $<t
+                        t-esc="product.precio_unitario" /> / un </p>
             </div>
         </xpath>
     </template>

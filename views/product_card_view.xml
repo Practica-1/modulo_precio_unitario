@@ -1,17 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="website_sale_product_card_inherit"
-        inherit_id="website_sale.product_template_view_tree">
-        <xpath expr="//field[@name='website_ribbon_id']" position="inside">
-            <div class="oe_product_info mt-3">
-                <p>
-                    <strong>Cantidad por caja:</strong>
-                    <t t-esc="product.cantidad_por_caja or 'N/A'" />
-                </p>
-                <p>
-                    <strong>Precio por unidad:</strong> $<t
-                        t-esc="product.precio_por_unidad or 'N/A'" />
-                </p>
+    <template id="website_sale_products_item_inherit" inherit_id="website_sale.products_item">
+        <xpath expr="//div[contains(@class, 'o_wsale_product_sub')]" position="inside">
+            <div class="w-100 mt-3" style="font-size: 12px;">
+                <strong>
+                    <t t-esc="product.empaquetado_descripcion" />
+                </strong>
             </div>
+            <div class="w-100 mt-2 text-muted font-weight-bold"> $<t t-esc="product.precio_unitario" />
+                / un </div>
         </xpath>
     </template>
 </odoo>
