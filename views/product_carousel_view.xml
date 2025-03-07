@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="website_sale_products_item_inherit" inherit_id="website_sale.products_item">
-        <xpath expr="//div[contains(@class, 'o_wsale_product_information_text')]" position="inside">
+    <template id="website_sale_products_carousel_inherit"
+        inherit_id="website_sale.dynamic_filter_template_product_product_borderless_2">
+        <xpath expr="//div[@class='card-title h6 flex-grow-1 w-100 mt-2 mb-3']" position="after">
+            <t t-set="product" t-value="record" />
             <div class="w-100 mt-3" style="font-size: 12px;">
                 <strong>
                     <t t-esc="product.empaquetado_descripcion" />

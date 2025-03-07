@@ -16,6 +16,13 @@ class ProductTemplate(models.Model):
         store=True,
         help="Precio unitario basado en el empaquetado."
     )
+    
+    precio_unitario_formateado = fields.Char(
+        string="Precio Unitario Formateado",
+        compute="_compute_empaquetado_descripcion",
+        store=True,
+        help="Precio unitario formateado como string sin decimales."
+    )
 
     @api.depends('packaging_ids', 'list_price')
     def _compute_empaquetado_descripcion(self):
@@ -29,11 +36,11 @@ class ProductTemplate(models.Model):
                 empaquetado = "Unidades"
                 cantidad = 1 
 
-            # Calcular precio unitario
             if cantidad > 0:
                 precio_unitario = product.list_price / cantidad
             else:
                 precio_unitario = product.list_price
 
             product.empaquetado_descripcion = empaquetado
-            product.precio_unitario = round(precio_unitario, 1) 
+            product.precio_unitario = round(precio_unitario) 
+            product.precio_unitario_formateado = "{:,.0f}".format(product.precio_unitario)

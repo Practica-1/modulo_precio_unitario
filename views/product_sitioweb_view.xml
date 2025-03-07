@@ -9,7 +9,7 @@
                     </strong>
                 </p>
                 <p class="d-block font-weight-bold" style="font-size: 14px;"> $<t
-                        t-esc="product.precio_unitario" /> / un </p>
+                        t-esc="product.precio_unitario_formateado" /> / un </p>
             </div>
         </xpath>
     </template>
